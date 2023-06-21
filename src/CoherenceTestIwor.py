@@ -90,4 +90,4 @@ def lda(number_topics, texts, number_test):
 
 lines = read()
 texts = parse(lines)
-lda(nb,texts,5)
+lda(nb,texts,9)
