@@ -81,17 +81,3 @@ def plot_coherence_perplexity(file_name):
 # plot_coherence_perplexity('no_stopwords_diff_n_topics/')
 
 # plot_test('no_stopwords/test_8.json', 8, 'steelblue')
-
-# plot_all(5,10)
-# data = {'apple': 10, 'orange': 15, 'lemon': 5, 'lime': 20}
-# names = list(data.keys())
-# values = list(data.values())
-
-# fig, axs = plt.subplots(1, 3, figsize=(9, 3), sharey=True)
-# axs[0].bar(names, values)
-# axs[1].scatter(names, values)
-# axs[2].plot(names, values)
-# fig.suptitle('Categorical Plotting')
-
-
-# plt.savefig(os.getcwd() + f'/doc/images/plots/test.png')
