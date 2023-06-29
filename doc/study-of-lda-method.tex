@@ -276,13 +276,9 @@
 	
 	In the process of determining the optimal number of topics for the LDA model, it is generally accepted that a model with lower perplexity and higher coherence is more desirable. A technique often used is the elbow method, as in K-Means. However, in the absence of a discernible elbow in the plot of these metrics, a different approach is required.
 	
-	We propose to make this decision by computing the difference between the coherence and perplexity values for each model. This difference will serve as a composite metric that balances both the predictive accuracy (as indicated by perplexity) and interpretability (as indicated by coherence) of the model.
+	We propose to make this decision by computing the difference between the coherence and perplexity values for each model. This difference will serve as a composite metric that balances both the predictive accuracy (as indicated by perplexity) and interpretability (as indicated by coherence) of the model. Among the models evaluated, we will select the one with the highest value of this composite metric. However, in cases where multiple models have similar composite scores, we will prioritize the model with the higher coherence value. This is due to our specific need for easily interpretable topics, which is better facilitated by a higher coherence score. This approach ensures that we select a model that not only fits the data well but also generates topics that are semantically meaningful and interpretable.
 	
-	Among the models evaluated, we will select the one with the highest value of this composite metric. However, in cases where multiple models have similar composite scores, we will prioritize the model with the higher coherence value. This is due to our specific need for easily interpretable topics, which is better facilitated by a higher coherence score. 
-	
-	This approach ensures that we select a model that not only fits the data well but also generates topics that are semantically meaningful and interpretable.
-	
-	According with this, the optimal number of topics is 5.
+	According to this strategy, the optimal number of topics would be 5.
 	
 	\section{Changing the dataset}
 	
@@ -332,7 +328,7 @@
 	\caption{Coherence and perplexity values of the model for each number of topic $k \in [5, 30]$ , in dataset TokenVieuxN.}
 \end{figure}
 	
-	The optimal number of topics is 23.
+	The optimal number of topics would be 23.
 	
 \section{Most typical documents for topics}
 To identify the most typical document for each topic we employed the \textit{get\_document\_topics} method provided by the \textit{LdaModel} class. This method returns a list of tuples, each containing the topic ID and the probability of that topic for a given document. 
