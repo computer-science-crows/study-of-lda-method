@@ -41,7 +41,7 @@ def plot_test(file_name, test, color):
         labels = list(data[str(j)].keys())
         values = list(map(float, data[str(j)].values()))
         plot_bar(labels, values, 'words', 'probability',
-                 f"Topic {j}", color, f'plots/test_{test}_no_stopwords/topic_{j}.png')
+                 f"Topic {j}", color, f'plots/test_{test}_no_stopwords_dataset_2/topic_{j}.png')
 
 
 def read_coherence_perplexity(file_name):
@@ -72,12 +72,12 @@ def plot_coherence_perplexity(file_name):
     print(labels)
 
     plot_bar(labels, coherence, 'number of topics', 'coherence',
-             'Coherence of Tests No Stopwords and Different Number of Topics', 'firebrick', 'coherence_no_stopwords_diff_n_topics.png')
+             'Coherence of Tests No Stopwords and Different Number of Topics', 'salmon', 'coherence_no_stopwords_diff_n_topics.png')
 
     plot_bar(labels, perplexity, 'number of topics', 'perplexity',
-             'Perplexity of Tests No Stopwords and Different Number of Topics', 'cadetblue', 'perplexity_no_stopwords_diff_n_topics.png')
+             'Perplexity of Tests No Stopwords and Different Number of Topics', 'darkturquoise', 'perplexity_no_stopwords_diff_n_topics.png')
 
 
-# plot_coherence_perplexity('no_stopwords_diff_n_topics/')
+#plot_coherence_perplexity('dataset_1/no_stopwords_diff_n_topics/')
 
-# plot_test('no_stopwords/test_8.json', 8, 'steelblue')
+plot_test('dataset_2/no_stopwords/test_8.json', 8, 'lightpink')

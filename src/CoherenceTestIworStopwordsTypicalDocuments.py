@@ -73,19 +73,28 @@ def lda(file_name,number_topics, texts, number_test):
             new_topic.update({id2word[j[0]]:str(j[1])})
             print(id2word[j[0]], " - P=", j[1])
         print()
-        test.update({i:new_topic.copy()})    # Compute Perplexity
+        test.update({i:new_topic.copy()})    
+    
+    # Compute Perplexity
+
     # a measure of how good the model is (lower the better).
     perplexity_lda = lda.log_perplexity(corpus)
     print('Perplexity= ', perplexity_lda)
     test.update({'perplexity':perplexity_lda})
+
     # Compute Coherence Score
     coherence_model_lda = CoherenceModel(
         model=lda, texts=texts, dictionary=id2word, coherence='c_v')
+    
     coherence_lda = coherence_model_lda.get_coherence()
     print('Coherence= ', coherence_lda)
     test.update({'coherence':coherence_lda})    # save test
     #with open(os.getcwd() + f'/tests/{file_name}/test_{number_test}.json', 'w') as file:
     #    json.dump(test, file)
+
+    typical_docs = lda.get_document_topics(corpus)
+
+    print(f"Typical Docs {list(typical_docs)}")
 
 nb=10
 
