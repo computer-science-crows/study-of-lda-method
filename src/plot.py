@@ -91,3 +91,13 @@ def plot_coherence_perplexity(file_name):
 plot_coherence_perplexity('dataset_2/no_stopwords_diff_n_topics/')
 
 #plot_test('dataset_1/stopwords/test_5.json', 5, 'lightskyblue')
+
+# coherence, perplexity = read_coherence_perplexity('dataset_1/stopwords/')
+# print(f"D1 Stopwords Coherence {sum(coherence)/len(coherence)}")
+# print(f"D1 Stopwords Perplexity {sum(perplexity)/len(perplexity)}")
+# coherence, perplexity = read_coherence_perplexity('dataset_1/no_stopwords/')
+# print(f"D1 No Stopwords Coherence {sum(coherence)/len(coherence)}")
+# print(f"D1 No Stopwords Perplexity {sum(perplexity)/len(perplexity)}")
+# coherence, perplexity = read_coherence_perplexity('dataset_2/no_stopwords/')
+# print(f"D2 No Stopwords Coherence {sum(coherence)/len(coherence)}")
+# print(f"D2 No Stopwords Perplexity {sum(perplexity)/len(perplexity)}")

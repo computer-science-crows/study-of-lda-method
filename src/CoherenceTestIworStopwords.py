@@ -15,7 +15,7 @@ nltk.download('stopwords')
 
 def read():
     
-    file = open(os.getcwd() + '/src/TokenVieuxM.txt', "r")
+    file = open(os.getcwd() + '/src/TokenVieuxN.txt', "r")
     lines = file.readlines()
     file.close()
 
@@ -88,8 +88,8 @@ def lda(file_name,number_topics, texts, number_test):
         json.dump(test, file)
 
 
-for i in range(5,21):
+for i in range(5,31):
     lines = read()
     texts = parse(lines)
-    lda('dataset_1/no_stopwords_diff_n_topics',i,texts,i)
+    lda('dataset_2/no_stopwords_diff_n_topics',i,texts,i)
     
