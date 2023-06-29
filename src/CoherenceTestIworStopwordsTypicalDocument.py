@@ -53,7 +53,7 @@ def lda(file_name,number_topics, texts):
     docs_topics = {}
     for i,topic in enumerate(list(typical_docs)):
         print(f"Topic {topic[0][0]}: {topic[0][1]}")
-        docs_topics.update({i:(topic[0][0], topic[0][1])})        
+        docs_topics.update({i:[str(topic[0][0]), str(topic[0][1])]})        
 
     with open(os.getcwd() + f'/tests/{file_name}/typical_docs.json', 'w') as file:
         json.dump(docs_topics, file)

@@ -15,7 +15,7 @@ nltk.download('stopwords')
 
 def read():
     
-    file = open(os.getcwd() + '/src/TokenVieuxN.txt', "r")
+    file = open(os.getcwd() + '/src/TokenVieuxM.txt', "r")
     lines = file.readlines()
     file.close()
 
@@ -59,7 +59,7 @@ def lda(file_name,number_topics, texts, number_test):
 #    print(i, id2word[i])
 
 # Train the lda model on the corpus.
-    lda = LdaModel(corpus, num_topics=number_topics)
+    lda = LdaModel(corpus, num_topics=number_topics, random_state=42)
     
     test = {}
     
@@ -88,8 +88,8 @@ def lda(file_name,number_topics, texts, number_test):
         json.dump(test, file)
 
 
-for i in range(5,31):
+for i in range(5,21):
     lines = read()
     texts = parse(lines)
-    lda('dataset_2/no_stopwords_diff_n_topics',i,texts,i)
+    lda('dataset_1/no_stopwords_diff_n_topics',i,texts,i)
     

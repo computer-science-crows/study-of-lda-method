@@ -81,14 +81,14 @@ def plot_coherence_perplexity(file_name):
     labels = [i for i in range(5, len(coherence)+ 5)]
     
     plot_line(labels, coherence, 'number of topics', 'coherence',
-             'Coherence of Tests No Stopwords and Different Number of Topics', 'orchid', 'coherence_no_stopwords_diff_n_topics_2.png')
+             'Coherence vs Number of Topics (No Stopwords)', 'orchid', 'coherence_no_stopwords_diff_n_topics.png')
     plt.clf()
 
     plot_line(labels, perplexity, 'number of topics', 'perplexity',
-             'Perplexity of Tests No Stopwords and Different Number of Topics', 'lightgreen', 'perplexity_no_stopwords_diff_n_topics_2.png')
+             'Perplexity vs Number of Topics (No Stopwords)', 'lightgreen', 'perplexity_no_stopwords_diff_n_topics.png')
 
 
-plot_coherence_perplexity('dataset_2/no_stopwords_diff_n_topics/')
+plot_coherence_perplexity('dataset_1/no_stopwords_diff_n_topics/')
 
 #plot_test('dataset_1/stopwords/test_5.json', 5, 'lightskyblue')
 
