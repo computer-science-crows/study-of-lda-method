@@ -55,7 +55,7 @@ def plot_test(file_name, test, color):
         labels = list(data[str(j)].keys())
         values = list(map(float, data[str(j)].values()))
         plot_bar(labels, values, 'words', 'probability',
-                 f"Topic {j}", color, f'plots/test_{test}/topic_{j}.png')
+                 f"Topic {j}", color, f'plots/test_{test}_no_stopwords_dataset_2/topic_{j}.png')
 
 
 def read_coherence_perplexity(file_name):
@@ -91,7 +91,7 @@ def plot_coherence_perplexity(file_name):
 
 #plot_coherence_perplexity('dataset_1/no_stopwords_diff_n_topics/')
 
-#plot_test('dataset_1/stopwords/test_5.json', 5, 'lightskyblue')
+plot_test('dataset_2/no_stopwords/test_5.json', 5, 'navy')
 
 # coherence, perplexity = read_coherence_perplexity('dataset_1/stopwords/')
 # print(f"D1 Stopwords Coherence {sum(coherence)/len(coherence)}")
