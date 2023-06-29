@@ -1,11 +1,11 @@
 \BOOKMARK [1][-]{section.1}{Initial analysis}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Topic descriptions obtained with one specific launch}{section.1}% 2
-\BOOKMARK [1][-]{section.2}{Stopwords}{}% 3
-\BOOKMARK [2][-]{subsection.2.1}{Removing stopwords}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.2}{Code Modification}{section.2}% 5
-\BOOKMARK [3][-]{subsubsection.2.2.1}{Test 8 No Stopwords}{subsection.2.2}% 6
-\BOOKMARK [2][-]{subsection.2.3}{Changing number of topics}{section.2}% 7
-\BOOKMARK [1][-]{section.3}{Dataset 2}{}% 8
-\BOOKMARK [2][-]{subsection.3.1}{Different number of topics}{section.3}% 9
-\BOOKMARK [1][-]{section.4}{Most typical documents for topics}{}% 10
-\BOOKMARK [1][-]{section.5}{Code modifications, tests and plots}{}% 11
+\BOOKMARK [1][-]{section.2}{Removing stopwords}{}% 3
+\BOOKMARK [2][-]{subsection.2.1}{Topic descriptions obtained with one specific launch and no stopwords}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Comparing results}{}% 5
+\BOOKMARK [1][-]{section.4}{Optimal number of topics for the document collection TokenVieuxM.txt}{}% 6
+\BOOKMARK [1][-]{section.5}{Changing the dataset}{}% 7
+\BOOKMARK [2][-]{subsection.5.1}{Topic descriptions obtained with one specific launch and no stopwords}{section.5}% 8
+\BOOKMARK [2][-]{subsection.5.2}{Optimal number of topics for the document collection TokenVieuxN.txt}{section.5}% 9
+\BOOKMARK [1][-]{section.6}{Most typical documents for topics}{}% 10
+\BOOKMARK [1][-]{section.7}{Code modifications, tests and plots}{}% 11
