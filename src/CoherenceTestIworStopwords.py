@@ -15,7 +15,7 @@ nltk.download('stopwords')
 
 def read():
     
-    file = open(os.getcwd() + '/src/TokenVieuxN.txt', "r")
+    file = open(os.getcwd() + '/src/TokenVieuxM.txt', "r")
     lines = file.readlines()
     file.close()
 
@@ -64,7 +64,7 @@ def lda(file_name,number_topics, texts, number_test):
     test = {}
     
     # Print topic descrition
-    for i in range(0, number_topics-1):
+    for i in range(0, number_topics):
         new_topic = {}
         value = lda.get_topic_terms(i)
     #    print(value)
@@ -84,11 +84,12 @@ def lda(file_name,number_topics, texts, number_test):
     coherence_lda = coherence_model_lda.get_coherence()
     print('Coherence= ', coherence_lda)
     test.update({'coherence':coherence_lda})    # save test
-    #with open(os.getcwd() + f'/tests/{file_name}/test_{number_test}.json', 'w') as file:
-    #    json.dump(test, file)
+    with open(os.getcwd() + f'/tests/{file_name}/test_{number_test}.json', 'w') as file:
+        json.dump(test, file)
 
-nb=10
 
-lines = read()
-texts = parse(lines)
-lda('dataset_2/no_stopwords_diff_n_topics',nb,texts,1)
+for i in range(5,21):
+    lines = read()
+    texts = parse(lines)
+    lda('dataset_1/no_stopwords_diff_n_topics',i,texts,i)
+    

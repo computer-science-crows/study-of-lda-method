@@ -6,12 +6,13 @@ import nltk
 import os
 import json
 
+
 # Given an object named 'texts' (a list of tokenized texts, ie a list of lists of tokens)
 # from gensim.test.utils import common_texts as texts
 
 # Create a corpus from a list of lists of tokens
 
-nltk.download('stopwords')
+# nltk.download('stopwords')
 
 def read():
     
@@ -27,6 +28,7 @@ def parse(lines):
 
     for line in lines:
         line = line.strip()
+        
         lt = line.split(",")
     # Potential ill-character cleaning
         for i in range(len(lt)):
@@ -48,11 +50,11 @@ def parse(lines):
 
 # Here set the number of topics(to be changed if necessary)
 
-nb = 10
-def lda(number_topics, texts, number_test):
+
+def lda(file_name,number_topics, texts, number_test):
     id2word = Dictionary(texts)
     corpus = [id2word.doc2bow(text) for text in texts]
-# print(corpus)
+    # print(corpus)
 
 ## Print dictionnary
 #for i in id2word:
@@ -60,11 +62,11 @@ def lda(number_topics, texts, number_test):
 
 # Train the lda model on the corpus.
     lda = LdaModel(corpus, num_topics=number_topics)
-
+    
     test = {}
     
     # Print topic descrition
-    for i in range(0, number_topics-1):
+    for i in range(0, number_topics):
         new_topic = {}
         value = lda.get_topic_terms(i)
     #    print(value)
@@ -84,10 +86,13 @@ def lda(number_topics, texts, number_test):
     coherence_lda = coherence_model_lda.get_coherence()
     print('Coherence= ', coherence_lda)
     test.update({'coherence':coherence_lda})    # save test
-    with open(os.getcwd() + f'/tests/test_{number_test}.json', 'w') as file:
+    with open(os.getcwd() + f'/tests/{file_name}/test_{number_test}.json', 'w') as file:
         json.dump(test, file)
 
-
-lines = read()
-texts = parse(lines)
-lda(nb,texts,9)
+nb = 10
+i = 50
+while i > 0:
+    lines = read()
+    texts = parse(lines)
+    lda('dataset_1/stopwords',nb,texts,i)
+    i-=1

@@ -6,7 +6,7 @@ import os
 
 def plot_bar(labels, values, x_label, y_label, title, color, file):
     # setting figure size by using figure() function
-    plt.figure(figsize=(10, 5))
+    plt.figure(figsize=(15, 12))
 
     # making the bar chart on the data
     plt.bar(labels, values, color=color)
@@ -14,7 +14,7 @@ def plot_bar(labels, values, x_label, y_label, title, color, file):
     # add value labels
     # for i in range(len(labels)):
     #     plt.text(i, values[i], round(values[i],4),ha='center',  va='bottom')
-
+    plt.xticks(range(len(labels)), labels, rotation='vertical')
     # giving title to the plot
     plt.title(title)
 
@@ -24,6 +24,19 @@ def plot_bar(labels, values, x_label, y_label, title, color, file):
 
     plt.savefig(os.getcwd() + f'/doc/images/{file}')
 
+def plot_line(labels, values, x_label, y_label, title, color, file):
+    
+    # Plotear el gráfico con líneas y puntos
+    plt.plot(labels, values, '-o', color=color)
+
+    # Personalizar el gráfico
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.title(title)
+    
+
+    plt.savefig(os.getcwd() + f'/doc/images/{file}')
+    
 
 def read(file_name):
     # Abrir el archivo JSON
@@ -41,7 +54,7 @@ def plot_test(file_name, test, color):
         labels = list(data[str(j)].keys())
         values = list(map(float, data[str(j)].values()))
         plot_bar(labels, values, 'words', 'probability',
-                 f"Topic {j}", color, f'plots/test_{test}_no_stopwords_dataset_2/topic_{j}.png')
+                 f"Topic {j}", color, f'plots/test_{test}/topic_{j}.png')
 
 
 def read_coherence_perplexity(file_name):
@@ -54,7 +67,6 @@ def read_coherence_perplexity(file_name):
 
     # Cargar y leer cada archivo .json
     for file in folder:
-        print(file)
         path = os.path.join(os.getcwd() + f'/tests/{file_name}', file)
         with open(path, 'r') as f:
             content = json.load(f)
@@ -66,18 +78,16 @@ def read_coherence_perplexity(file_name):
 
 def plot_coherence_perplexity(file_name):
     coherence, perplexity = read_coherence_perplexity(file_name)
-    print(coherence)
-    print(perplexity)
-    labels = [i for i in range(5, len(coherence)+5)]
-    print(labels)
+    labels = [i for i in range(len(coherence))]
+    
+    plot_line(labels, coherence, 'number of topics', 'coherence',
+             'Coherence of Tests for Different Number of Topics', 'orchid', 'coherence_no_stopwords_diff_n_topics_2.png')
+    plt.clf()
 
-    plot_bar(labels, coherence, 'number of topics', 'coherence',
-             'Coherence of Tests No Stopwords and Different Number of Topics', 'salmon', 'coherence_no_stopwords_diff_n_topics.png')
-
-    plot_bar(labels, perplexity, 'number of topics', 'perplexity',
-             'Perplexity of Tests No Stopwords and Different Number of Topics', 'darkturquoise', 'perplexity_no_stopwords_diff_n_topics.png')
+    plot_line(labels, perplexity, 'number of topics', 'perplexity',
+             'Perplexity of Tests No Stopwords for Different Number of Topics', 'lightgreen', 'perplexity_no_stopwords_diff_n_topics_2.png')
 
 
-#plot_coherence_perplexity('dataset_1/no_stopwords_diff_n_topics/')
+plot_coherence_perplexity('dataset_2/no_stopwords_diff_n_topics/')
 
-plot_test('dataset_2/no_stopwords/test_8.json', 8, 'lightpink')
+#plot_test('dataset_1/stopwords/test_5.json', 5, 'lightskyblue')
