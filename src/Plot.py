@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import json
 import os
+import math
 
 
 def plot_bar(labels, values, x_label, y_label, title, color, file):
@@ -88,7 +89,7 @@ def plot_coherence_perplexity(file_name):
              'Perplexity vs Number of Topics (No Stopwords)', 'lightgreen', 'perplexity_no_stopwords_diff_n_topics.png')
 
 
-plot_coherence_perplexity('dataset_1/no_stopwords_diff_n_topics/')
+#plot_coherence_perplexity('dataset_1/no_stopwords_diff_n_topics/')
 
 #plot_test('dataset_1/stopwords/test_5.json', 5, 'lightskyblue')
 
@@ -101,3 +102,27 @@ plot_coherence_perplexity('dataset_1/no_stopwords_diff_n_topics/')
 # coherence, perplexity = read_coherence_perplexity('dataset_2/no_stopwords/')
 # print(f"D2 No Stopwords Coherence {sum(coherence)/len(coherence)}")
 # print(f"D2 No Stopwords Perplexity {sum(perplexity)/len(perplexity)}")
+
+# coherence, perplexity = read_coherence_perplexity('dataset_1/no_stopwords_diff_n_topics/')
+# max = (0,-math.inf)
+# difference = []
+# for i in range(len(coherence)):
+#     #print(f"D1 Number of Topics {i+5}: Coherence {coherence[i]} Perplexity {perplexity[i]} Difference {coherence[i]-perplexity[i]}")
+#     #print()
+#     difference.append(coherence[i]-perplexity[i])
+#     if max[1] < coherence[i]-perplexity[i]:
+#         max = (i,coherence[i]-perplexity[i])
+
+# print(f"MAX {max}")
+
+# coherence, perplexity = read_coherence_perplexity('dataset_2/no_stopwords_diff_n_topics/')
+# max = (0,-math.inf)
+# difference = []
+# for i in range(len(coherence)):
+#     #print(f"D2 Number of Topics {i+5}: Coherence {coherence[i]} Perplexity {perplexity[i]} Difference {coherence[i]-perplexity[i]}")
+#     #print()
+#     difference.append(coherence[i]-perplexity[i])
+#     if max[1] < coherence[i]-perplexity[i]:
+#         max = (i,coherence[i]-perplexity[i])
+
+# print(f"MAX {max}")
