@@ -91,7 +91,7 @@ def plot_coherence_perplexity(file_name):
 
 #plot_coherence_perplexity('dataset_1/no_stopwords_diff_n_topics/')
 
-plot_test('dataset_2/no_stopwords/test_5.json', 5, 'navy')
+plot_test('dataset_2/no_stopwords/test_5.json', 5, 'mediumblue')
 
 # coherence, perplexity = read_coherence_perplexity('dataset_1/stopwords/')
 # print(f"D1 Stopwords Coherence {sum(coherence)/len(coherence)}")
